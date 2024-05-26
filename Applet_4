@@ -1,0 +1,37 @@
+
+import java.awt.*;
+import java.awt.event.*;
+class Textfield extends Frame{
+    TextField txt;
+    Label l1,l2;
+
+    public Textfield(){
+        super("MICRO CORNERS.");
+        setSize(500,500);
+        setVisible(true);
+        setLayout(null);
+
+        txt=new TextField();
+        txt.setBounds(20,50,200,45);
+        add(txt);
+
+        l1=new Label("YOU ARE SELECTED LABEL 1.");
+        l1.setBounds(20,150,250,50);
+        add(l1);
+
+        l2=new Label("YOU ARE SELECTED LABEL 2.");
+        l2.setBounds(20,250,250,50);
+        add(l2);
+
+        this.addWindowListener(new WindowAdapter(){
+            public void windowClosing(WindowEvent e){
+                System.exit(0);
+            }
+        });
+    }
+}
+public class App_4 {
+    public static void main(String[] args) {
+      Textfield o=new Textfield();
+    }
+}
