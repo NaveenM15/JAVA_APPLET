@@ -1,0 +1,55 @@
+
+// choice in AWT
+
+// Program to Count Words and Characters in JAVA AWT
+
+import java.awt.*;
+import java.awt.event.*;
+class Choices extends Frame implements ActionListener {
+    Choice ci;
+    Button btn;
+    Label l;
+    public Choices() {
+        super("Words and Character Count.");
+        setVisible(true);
+        setSize(500, 500);
+        setLayout(null);
+
+        ci=new Choice();
+        ci.setBounds(20,50,100,80);
+        ci.add("C");
+        ci.add("JAVA");
+        ci.add("C++");
+        ci.add("JS");
+        ci.add("PYTHON");
+        ci.add("RUST");
+        btn = new Button("SHOW CHOICE");
+        btn.addActionListener(this);
+        btn.setBounds(125, 50, 100, 40);
+        btn.addActionListener(new ActionListener(){
+            public void actionPerformed(ActionEvent e){
+                String data="Programming Language Selected: "+ci.getItem(ci.getSelectedIndex());
+                l.setText(data);
+            }
+        });
+
+        l=new Label("--------------");
+        l.setBounds(20,150,300,40);
+        add(ci);
+        add(btn);
+        add(l);
+        this.addWindowListener(new WindowAdapter() {
+            public void windowClosing(WindowEvent e) {
+                System.exit(0);
+            }
+        });
+    }
+    public void actionPerformed(ActionEvent e){
+
+    }
+}
+public class App_8 {
+    public static void main(String[] args) {
+      Choices c=new Choices();
+    }
+}
