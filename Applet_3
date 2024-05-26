@@ -1,0 +1,58 @@
+
+
+// There is no particular method in radio Button ,
+//   we can create it , using checkbox
+import java.awt.*;
+import java.awt.event.*;
+class RadioButton extends Frame{
+    Label l1,l2;
+    Checkbox c1,c2;
+    CheckboxGroup cbg;
+    public RadioButton(){
+        super("MICRO CORNERS..");
+        setSize(500,500);
+        setVisible(true);
+        setLayout(null);
+
+        cbg=new CheckboxGroup();
+        c1=new Checkbox("Male",cbg,false);
+        c1.setBounds(20,50,90,40);
+        l1=new Label("Not Selected");
+        l1.setBounds(200,50,100,40);
+
+        c1.addItemListener(new ItemListener(){
+            public void itemStateChanged(ItemEvent e){
+                l1.setText(e.getStateChange()==1?"Checked":"Not Checked");
+                l2.setText("Not Checked");
+            }
+        });
+
+        c2=new Checkbox("FeMale",cbg,false);
+        c2.setBounds(20,150,90,40);
+        l2=new Label("Not Selected");
+        l2.setBounds(200,150,100,40);
+
+        c2.addItemListener(new ItemListener(){
+            public void itemStateChanged(ItemEvent e){
+                l2.setText(e.getStateChange()==1?"Checked":"Not Checked");
+                l1.setText("Not Checked");
+            }
+        });
+
+        add(c1);
+        add(c2);
+        add(l1);
+        add(l2);
+        this.addWindowListener(new WindowAdapter(){
+            public void windowClosing(WindowEvent e){
+                System.exit(0);
+            }
+        });
+    }
+}
+public class App_3 {
+    public static void main(String[] args) {
+        RadioButton btn=new RadioButton();
+
+    }
+}
