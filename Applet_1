@@ -1,0 +1,44 @@
+
+
+//
+//Java Applet - Applet used for windows Application and able to
+//             run any os.
+//AWT - Abstract window tool kit
+
+import java.awt.*;
+import java.awt.event.*;
+class Myapp extends Frame implements ActionListener{
+
+    Button btn;
+    Label lab;
+    public Myapp(){
+        super("MICRO CORNERS..");
+        setSize(400,400);
+        setVisible(true);
+        setLayout(null);
+
+        btn=new Button("Click Me");
+        btn.setBounds(50,50,80,40);
+        btn.addActionListener(this);
+        add(btn);
+
+        lab=new Label("Welcome to Micro Corners.");
+        lab.setBounds(50,90,100,40);
+        add(lab);
+
+        this.addWindowListener(new WindowAdapter(){
+           public void windowClosing(WindowEvent e){
+               System.exit(0);
+           }
+        });
+    }
+    @Override
+    public void actionPerformed(ActionEvent e){
+        lab.setText("Button Clicked--------------");
+    }
+}
+public class App_1{
+     public static void main(String[] args) {
+       Myapp o=new Myapp();
+     }
+ }
