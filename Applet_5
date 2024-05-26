@@ -1,0 +1,63 @@
+
+// ADDITION PROGRAM IN AWT
+import java.awt.*;
+import java.awt.event.*;
+class Addition extends Frame implements ActionListener{
+    Label l1,l2,l3;
+    TextField t1,t2;
+    Button btn;
+    public Addition(){
+        super("ADDITION OF NUMERS.");
+        setVisible(true);
+        setSize(500,500);
+        setLayout(null);
+
+        l1=new Label("Enter the First value : ");
+        l1.setBounds(20,50,150,40);
+        add(l1);
+        t1=new TextField();
+        t1.setBounds(170,50,60,30);
+        add(t1);
+
+        l2=new Label("Enter the Second value : ");
+        l2.setBounds(20,150,150,40);
+        add(l2);
+        t2=new TextField();
+        t2.setBounds(170,150,60,30);
+        add(t2);
+
+        btn=new Button("ADD");
+        btn.setBounds(150,230,100,40);
+        btn.addActionListener(this);
+        add(btn);
+
+        l3=new Label(" ");
+        l3.setBounds(100,270,150,40);
+        add(l3);
+
+        this.addWindowListener(new WindowAdapter(){
+            public void windowClosing(WindowEvent e){
+                System.exit(0);
+            }
+        });
+    }
+    public void actionPerformed(ActionEvent e){
+      String s1=t1.getText();
+      String s2=t2.getText();
+      if(s1.isEmpty() || s2.isEmpty()){
+          l3.setText("Please Enter the Value");
+      }
+      else{
+          int a=Integer.parseInt(s1);
+          int b=Integer.parseInt(s2);
+          int c=a+b;
+          String res=String.valueOf(c);
+          l3.setText("Result: "+res);
+      }
+    }
+}
+public class App_6 {
+    public static void main(String[] args) {
+      Addition obj=new Addition();
+    }
+}
