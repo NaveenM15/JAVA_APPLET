@@ -1,0 +1,47 @@
+
+// TEXTAREA
+
+import java.awt.*;
+import java.awt.event.*;
+class Textarea extends Frame implements ActionListener {
+    TextArea t;
+    Label l1;
+    Button btn;
+    TextField tf;
+    public Textarea() {
+        super("ADDITION OF NUMERS.");
+        setVisible(true);
+        setSize(500, 500);
+        setLayout(null);
+
+         l1=new Label("-------------------");
+         l1.setBounds(20,50,200,40);
+         t=new TextArea(10,30);
+         t.setBounds(20,100,200,200);
+         tf=new TextField();
+         tf.setBounds(20,350,200,40);
+         btn=new Button("CLICK");
+         btn.addActionListener(this);
+         btn.setBounds(20,400,100,40);
+
+         add(l1);
+         add(t);
+         add(tf);
+         add(btn);
+        this.addWindowListener(new WindowAdapter() {
+            public void windowClosing(WindowEvent e) {
+                System.exit(0);
+            }
+        });
+    }
+    public void actionPerformed(ActionEvent e){
+       l1.setText(t.getSelectedText()); //only show selected items in textfild to label
+        t.append(tf.getText());// this add words in textarea to textfield
+        t.insert(tf.getText(),t.getCaretPosition());// it insert text to certain position.
+    }
+}
+public class App_5 {
+    public static void main(String[] args) {
+        Textarea o=new Textarea();
+    }
+}
