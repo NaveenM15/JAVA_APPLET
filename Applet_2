@@ -1,0 +1,70 @@
+
+import java.awt.*;
+import java.awt.event.*;
+class CheckBox extends Frame implements ActionListener{
+    Label l1,l2,l3;
+    Checkbox c1,c2,c3;
+
+   public CheckBox(){
+        super("MICRO CORNERS.");
+        setSize(500,500);
+        setVisible(true);
+        setLayout(null);
+//      -----------------------------------------------
+        c1=new Checkbox("JAVA PROGRAMMING");
+        c1.setBounds(150,50,150,40);
+        add(c1);
+        l1=new Label("NOT SELECTED");
+        l1.setBounds(10,50,100,40);
+        add(l1);
+
+        c1.addItemListener(new ItemListener(){
+            public void itemStateChanged(ItemEvent e){
+                l1.setText((e.getStateChange()==1?"Checked":"Unchecked"));
+            }
+        });
+//      ------------------------------------------------
+        c2=new Checkbox("C PROGRAMMING");
+        c2.setBounds(150,100,150,40);
+        add(c2);
+        l2=new Label("NOT SELECTED");
+        l2.setBounds(10,100,100,40);
+        add(l2);
+
+        c2.addItemListener(new ItemListener(){
+            public void itemStateChanged(ItemEvent e){
+                l2.setText((e.getStateChange()==1?"Checked":"Unchecked"));
+            }
+        });
+//        ----------------------------------------------
+        c3=new Checkbox("C++ PROGRAMMING");
+        c3.setBounds(150,150,150,40);
+        add(c3);
+        l3=new Label("NOT SELECTED");
+        l3.setBounds(10,150,100,40);
+        add(l3);
+
+       c3.addItemListener(new ItemListener(){
+           public void itemStateChanged(ItemEvent e){
+               l3.setText((e.getStateChange()==1?"Checked":"Unchecked"));
+           }
+       });
+
+        this.addWindowListener(new WindowAdapter(){
+            public void windowClosing(WindowEvent e){
+                System.exit(0);
+            }
+        });
+    }
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        l1.setText("JAVA SELECTED");
+        l2.setText("C SELECTED");
+        l3.setText("C++ SELECTED");
+    }
+}
+public class App_2 {
+    public static void main(String[] args) {
+        CheckBox obj=new CheckBox();
+    }
+}
