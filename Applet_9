@@ -1,0 +1,58 @@
+
+// LIST OF ELEMENTS
+import java.awt.*;
+import java.awt.event.*;
+class Lists extends Frame implements ActionListener{
+    List lst;
+    Button btn;
+    Label l;
+    public Lists(){
+        super("LIST OF ELEMENTS.");
+        setSize(500,500);
+        setVisible(true);
+        setLayout(null);
+        l=new Label("------------");
+        l.setBounds(200,250,100,40);
+        add(l);
+        btn=new Button("Clicked");
+        btn.setBounds(20,250,100,40);
+        add(btn);
+        btn.addActionListener(this);
+
+        lst=new List(1,true);
+        lst.setBounds(20,50,200,100);
+        lst.add("ONE");
+        lst.add("TWO");
+        lst.add("THREE");
+        lst.add("FOUR");
+        lst.add("FIVE");
+        lst.add("SIX");
+        lst.add("SEVEN");
+        lst.add("EIGHT");
+        lst.add("NINE");
+        lst.add("TEN");
+        add(lst);
+
+        this.addWindowListener(new WindowAdapter(){
+            public void windowClosing(WindowEvent e){
+                System.exit(0);
+            }
+        });
+    }
+
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        String s[]=lst.getSelectedItems();
+        String data="Selected Numbers : ";
+        for (String x:s){
+            data+= x+" , ";
+        }
+        l.setText(data);
+    }
+}
+public class App_9 {
+    public static void main(String[] args) {
+     Lists l=new Lists();
+    }
+}
