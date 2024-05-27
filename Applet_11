@@ -1,0 +1,72 @@
+
+// CREATION OF MENUBAR IN JAVA AWT
+import java.awt.*;
+import java.awt.event.*;
+class Menubar extends Frame{
+    public Menubar(){
+        super("MENUBAR IN AWT..");
+        setSize(500,500);
+        setVisible(true);
+        setLayout(null);
+
+        MenuBar m=new MenuBar();
+        Menu menu=new Menu("Menu");
+        Menu submenu1=new Menu("Fruits");
+        Menu submenu2=new Menu("Vegetables");
+        Menu submenu3=new Menu("Flowers");
+        menu.add(submenu1);
+        menu.add(submenu2);
+        menu.add(submenu3);
+        m.add(menu);
+
+        // Fruits
+        MenuItem fi1=new MenuItem("Apple");
+        MenuItem fi2=new MenuItem("Orange");
+        MenuItem fi3=new MenuItem("PineApple");
+        MenuItem fi4=new MenuItem("Grapes");
+        MenuItem fi5=new MenuItem("Mango");
+        // vegetables
+        MenuItem vi1=new MenuItem("Tomato");
+        MenuItem vi2=new MenuItem("Potato");
+        MenuItem vi3=new MenuItem("Carrot");
+        MenuItem vi4=new MenuItem("Beetroot");
+        MenuItem vi5=new MenuItem("Brinjal");
+        // flowers
+        MenuItem li1=new MenuItem("Rose");
+        MenuItem li2=new MenuItem("Lotus");
+        MenuItem li3=new MenuItem("Lilly");
+        MenuItem li4=new MenuItem("Jasmine");
+        MenuItem li5=new MenuItem("Rose");
+
+        submenu1.add(fi1);
+        submenu1.add(fi2);
+        submenu1.add(fi3);
+        submenu1.add(fi4);
+        submenu1.add(fi5);
+
+        submenu2.add(vi1);
+        submenu2.add(vi2);
+        submenu2.add(vi3);
+        submenu2.add(vi4);
+        submenu2.add(vi5);
+
+        submenu3.add(li1);
+        submenu3.add(li2);
+        submenu3.add(li3);
+        submenu3.add(li4);
+        submenu3.add(li5);
+
+        setMenuBar(m);
+
+        this.addWindowListener(new WindowAdapter(){
+            public void windowClosing(WindowEvent e){
+                System.exit(0);
+            }
+        });
+    }
+}
+public class App_11 {
+    public static void main(String[] args) {
+        Menubar m=new Menubar();
+    }
+}
