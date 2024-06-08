@@ -1,0 +1,176 @@
+
+
+// REGISTERATION FORM IN JAVA AWT
+import java.awt.*;
+import java.awt.event.*;
+class Registeration extends Frame implements ActionListener{
+    Label ltitle,lname,lmailid,lmobile,lage,lgender,lcourse,laddress,selectedcourse;
+    TextField tname,tmailid,tmobile,tage;
+    Checkbox cmale,cfemale;
+    Choice chcourse;
+    TextArea txtaddress;
+    CheckboxGroup cbg;
+    Button btn,clear,save;
+    public Registeration(){
+        super("REGISTERATION FORM.");
+        setSize(600,600);
+        setVisible(true);
+        setLayout(null);
+        setBackground(Color.darkGray);
+
+//      --------------------------------------------------
+
+        Font title=new Font("arial",Font.BOLD,25);
+        Font label=new Font("arial",Font.PLAIN,18);
+        Font text=new Font("arial",Font.PLAIN,15);
+
+
+        ltitle=new Label("REGISTERATION FORM");
+        ltitle.setBounds(110,50,300,40);
+        ltitle.setFont(title);
+        ltitle.setForeground(Color.GREEN);
+
+
+
+
+        lname=new Label("NAME     :");
+        lname.setBounds(100,100,100,50);
+        tname=new TextField();
+        tname.setBounds(200,100,300,30);
+        lname.setFont(label);
+        lname.setForeground(Color.white);
+        tname.setFont(text);
+
+        lmailid=new Label("MAIL-ID  :");
+        lmailid.setBounds(100,150,100,50);
+        tmailid=new TextField();
+        tmailid.setBounds(200,150,300,30);
+        lmailid.setFont(label);
+        lmailid.setForeground(Color.white);
+        tmailid.setFont(text);
+
+        lmobile=new Label("MOBILE  :");
+        lmobile.setBounds(100,200,100,50);
+        tmobile=new TextField();
+        tmobile.setBounds(200,200,300,30);
+        lmobile.setFont(label);
+        lmobile.setForeground(Color.white);
+        tmobile.setFont(text);
+
+        lage=new Label("AGE      :");
+        lage.setBounds(100,250,100,50);
+        tage=new TextField();
+        tage.setBounds(200,250,300,30);
+        lage.setFont(label);
+        lage.setForeground(Color.white);
+        tage.setFont(text);
+
+        lgender=new Label("GENDER :");
+        lgender.setBounds(100,300,100,50);
+         cbg = new CheckboxGroup();
+        cmale=new Checkbox("Male",cbg,true);
+        cmale.setBounds(200,300,50,50);
+        cfemale=new Checkbox("FeMale",cbg,false);
+        cfemale.setBounds(300,300,100,50);
+        lgender.setFont(label);
+        lgender.setForeground(Color.white);
+        cmale.setForeground(Color.white);
+        cmale.setFont(text);
+        cfemale.setForeground(Color.white);
+        cfemale.setFont(text);
+//---------------------------------------------------------------------
+
+        lcourse=new Label("COURSE :");
+        lcourse.setBounds(100,350,100,50);
+        lcourse.setFont(label);
+        lcourse.setForeground(Color.white);
+
+        chcourse=new Choice();
+        chcourse.setBounds(200,365,60,50);
+
+        chcourse.add("ECE");
+        chcourse.add("CSE");
+        chcourse.add("ADS");
+        chcourse.add("EEE");
+        chcourse.add("IT");
+
+        btn=new Button("Show Choice");
+        btn.setBounds(280,350,100,40);
+        btn.setForeground(Color.white);
+        btn.setFont(text);
+
+        btn.addActionListener(new ActionListener(){
+            public void actionPerformed(ActionEvent e){
+                String s=chcourse.getItem(chcourse.getSelectedIndex());
+                selectedcourse.setText(s);
+            }
+        });
+
+        selectedcourse=new Label("----------");
+        selectedcourse.setBounds(400,350,100,50);
+        selectedcourse.setForeground(Color.white);
+        selectedcourse.setFont(text);
+
+//--------------------------------------------------------------------------------------
+        laddress=new Label("ADDRESS :");
+        laddress.setBounds(100,400,100,50);
+        txtaddress=new TextArea(10,30);
+        txtaddress.setBounds(200,400,300,80);
+        laddress.setFont(label);
+        laddress.setForeground(Color.white);
+        
+        save=new Button("Save Details.");
+        save.setBounds(200,500,140,40);
+        clear=new Button("Clear All.");
+        clear.setBounds(350,500,140,40);
+        save.setForeground(Color.white);
+        save.setFont(label);
+        save.setBackground(Color.green);
+        clear.setForeground(Color.white);
+        clear.setFont(label);
+        clear.setBackground(Color.red);
+        
+
+//      -------------------------------------------------
+        add(ltitle);
+        add(lname);
+        add(lmailid);
+        add(lmobile);
+        add(lcourse);
+        add(lgender);
+        add(laddress);
+        add(lage);
+        add(tname);
+        add(tage);
+        add(tmailid);
+        add(tmobile);
+        add(cmale);
+        add(cfemale);
+        add(chcourse);
+        add(txtaddress);
+        add(btn);
+        add(selectedcourse);
+        add(save);
+        add(clear);
+//        add(cbg);
+
+
+//      -------------------------------------------------
+        this.addWindowListener(new WindowAdapter(){
+            public void windowClosing(WindowEvent e){
+                System.exit(0);
+            }
+        });
+    }
+
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+
+    }
+}
+public class App_12 {
+    public static void main(String[] args) {
+       Registeration r=new Registeration();
+    }
+}
